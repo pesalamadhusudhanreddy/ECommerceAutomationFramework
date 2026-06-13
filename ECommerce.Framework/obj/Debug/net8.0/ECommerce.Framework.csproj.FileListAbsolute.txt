@@ -1,0 +1,12 @@
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\bin\Debug\net8.0\ECommerce.Framework.deps.json
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\bin\Debug\net8.0\ECommerce.Framework.dll
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\bin\Debug\net8.0\ECommerce.Framework.pdb
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\obj\Debug\net8.0\ECommerce.Framework.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\obj\Debug\net8.0\ECommerce.Framework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\obj\Debug\net8.0\ECommerce.Framework.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\obj\Debug\net8.0\ECommerce.Framework.AssemblyInfo.cs
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\obj\Debug\net8.0\ECommerce.Framework.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\obj\Debug\net8.0\ECommerce.Framework.dll
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\obj\Debug\net8.0\refint\ECommerce.Framework.dll
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\obj\Debug\net8.0\ECommerce.Framework.pdb
+C:\Users\user\source\repos\ECommerceAutomationFramework\ECommerce.Framework\obj\Debug\net8.0\ref\ECommerce.Framework.dll
