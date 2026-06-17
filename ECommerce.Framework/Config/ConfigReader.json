@@ -1,0 +1,20 @@
+using Newtonsoft.Json;
+using System.IO;
+
+namespace ECommerce.Framework.ConfigReader
+{
+    public class ConfigReader
+    {
+        public static dynamic GetConfig()
+        {
+            string path = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "config.json"
+            );
+
+            string json = File.ReadAllText(path);
+
+            return JsonConvert.DeserializeObject(json);
+        }
+    }
+}

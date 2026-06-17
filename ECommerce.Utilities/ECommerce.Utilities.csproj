@@ -1,22 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
-    <PackageReference Include="ExtentReports" Version="5.0.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-	<PackageReference Include="AventStack.ExtentReports" Version="5.0.9" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		
+		<PackageReference Include="ExtentReports" Version="4.1.3" />
+		
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Readers\" />
-    <Folder Include="Screenshots\" />
-    <Folder Include="Reports\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Readers\" />
+		<Folder Include="Screenshots\" />
+		<Folder Include="Reports\" />
+	</ItemGroup>
 
 </Project>

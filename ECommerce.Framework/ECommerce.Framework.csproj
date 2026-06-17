@@ -12,12 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Drivers\" />
-    <Folder Include="Config\" />
     <Folder Include="Base\" />
     <Folder Include="Constants\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
 </Project>

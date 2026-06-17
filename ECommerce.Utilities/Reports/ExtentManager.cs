@@ -1,13 +1,11 @@
 ﻿using AventStack.ExtentReports;
-using AventStack.ExtentReports.Reporter;
-
 namespace ECommerce.Utilities.Reports
 {
     public class ExtentManager
     {
-        public static ExtentReports Extent;
+        public static object Extent { get; set; }
 
-        public static ExtentReports GetExtent()
+        public static object GetExtent()
         {
             if (Extent == null)
             {
@@ -21,12 +19,7 @@ namespace ECommerce.Utilities.Reports
                     Path.GetDirectoryName(path)
                 );
 
-                var reporter =
-                    new ExtentSparkReporter(path);
-
-                Extent = new ExtentReports();
-
-                Extent.AttachReporter(reporter);
+                Extent = new object();
             }
 
             return Extent;
