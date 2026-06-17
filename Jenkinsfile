@@ -4,12 +4,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/pesalamadhusudhanreddy/ECommerceAutomationFramework.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 bat 'dotnet build'
