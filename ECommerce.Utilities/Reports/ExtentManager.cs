@@ -1,16 +1,20 @@
 ﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+
 namespace ECommerce.Utilities.Reports
 {
     public class ExtentManager
     {
-        public static object Extent { get; set; }
+        public static ExtentReports Extent;
 
-        public static object GetExtent()
+        public static ExtentReports GetExtent()
         {
             if (Extent == null)
             {
                 string path = Path.Combine(
-                    Directory.GetCurrentDirectory(),
+                    Directory.GetParent(
+                        Directory.GetCurrentDirectory()
+                    ).Parent.Parent.FullName,
                     "Reports",
                     "index.html"
                 );
@@ -19,7 +23,12 @@ namespace ECommerce.Utilities.Reports
                     Path.GetDirectoryName(path)
                 );
 
-                Extent = new object();
+                var reporter =
+                    new ExtentSparkReporter(path);
+
+                Extent = new ExtentReports();
+
+                Extent.AttachReporter(reporter);
             }
 
             return Extent;
