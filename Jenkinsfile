@@ -16,17 +16,17 @@ pipeline {
             }
         }
 
-        stage('Publish Extent Report') {
-            steps {
-                publishHTML([
-                    reportDir: 'ExtentReport',
-                    reportFiles: 'index.html',
-                    reportName: 'Extent Report',
-                    allowMissing: true,
-                    alwaysLinkToLastBuild: true
-                ])
-            }
-        }
+stage('Publish Extent Report') {
+    steps {
+        publishHTML([
+            reportDir: 'Reports',
+            reportFiles: 'index.html',
+            reportName: 'Extent Report',
+            allowMissing: false,
+            alwaysLinkToLastBuild: true
+        ])
+    }
+}
 
     }
 }
