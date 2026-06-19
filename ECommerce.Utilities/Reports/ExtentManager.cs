@@ -5,33 +5,38 @@ namespace ECommerce.Utilities.Reports
 {
     public class ExtentManager
     {
-        public static ExtentReports Extent;
+        private static ExtentReports extent;
 
         public static ExtentReports GetExtent()
         {
-            if (Extent == null)
+            if (extent == null)
             {
-                string path = Path.Combine(
-                    Directory.GetParent(
-                        Directory.GetCurrentDirectory()
-                    ).Parent.Parent.FullName,
+                string reportPath = Path.Combine(
+                    Directory.GetCurrentDirectory(),
                     "Reports",
-                    "index.html"
+                    "ExtentReport.html"
                 );
 
                 Directory.CreateDirectory(
-                    Path.GetDirectoryName(path)
+                    Path.GetDirectoryName(reportPath)
                 );
 
-                var reporter =
-                    new ExtentSparkReporter(path);
+                var sparkReporter = new ExtentSparkReporter(reportPath);
 
-                Extent = new ExtentReports();
+                extent = new ExtentReports();
+                extent.AttachReporter(sparkReporter);
 
-                Extent.AttachReporter(reporter);
+                extent.AddSystemInfo("Application", "ECommerce");
+                extent.AddSystemInfo("Environment", "QA");
+                extent.AddSystemInfo("Framework", "NUnit + Selenium");
             }
 
-            return Extent;
+            return extent;
+        }
+
+        public static void Flush()
+        {
+            extent?.Flush();
         }
     }
 }

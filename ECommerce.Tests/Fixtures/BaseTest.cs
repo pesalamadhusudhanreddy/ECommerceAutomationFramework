@@ -8,6 +8,7 @@ namespace ECommerce.Tests.Fixtures
     public class BaseTest : IDisposable
     {
         protected IWebDriver Driver;
+        protected ExtentReports Extent;
 
         [SetUp]
         public void Setup()
@@ -16,34 +17,56 @@ namespace ECommerce.Tests.Fixtures
             options.AddArgument("--start-maximized");
 
             Driver = new ChromeDriver(options);
-            Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
 
-            ExtentManager.GetExtent();
+            Driver.Navigate().GoToUrl(
+                "https://www.saucedemo.com/"
+            );
+
+            Extent = ExtentManager.GetExtent();
         }
+
 
         [TearDown]
         public void TearDown()
         {
-            if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
+            if (TestContext.CurrentContext.Result.Outcome.Status
+                == NUnit.Framework.Interfaces.TestStatus.Failed)
             {
-                var screenshot = ((ITakesScreenshot)Driver).GetScreenshot();
-                var screenshotPath = Path.Combine(
-                    Directory.GetCurrentDirectory(),
-                    "Screenshots",
-                    $"{TestContext.CurrentContext.Test.Name}_{DateTime.Now:yyyyMMdd_HHmmss}.png"
-                );
-
-                Directory.CreateDirectory(Path.GetDirectoryName(screenshotPath));
-                screenshot.SaveAsFile(screenshotPath);
+                TakeScreenshot();
             }
+
+            ExtentManager.Flush();
 
             Dispose();
         }
 
+
+        public void TakeScreenshot()
+        {
+            var screenshot = ((ITakesScreenshot)Driver)
+                .GetScreenshot();
+
+
+            var screenshotPath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "Screenshots",
+                $"{TestContext.CurrentContext.Test.Name}_{DateTime.Now:yyyyMMdd_HHmmss}.png"
+            );
+
+
+            Directory.CreateDirectory(
+                Path.GetDirectoryName(screenshotPath)
+            );
+
+
+            screenshot.SaveAsFile(screenshotPath);
+        }
+
+
         public void Dispose()
         {
-            Driver?.Dispose();
             Driver?.Quit();
+            Driver?.Dispose();
         }
     }
 }
