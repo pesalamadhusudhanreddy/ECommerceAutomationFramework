@@ -31,5 +31,11 @@ namespace ECommerce.Utilities.Reports
 
             return extent;
         }
+
+
+        public static void Flush()
+        {
+            extent?.Flush();
+        }
     }
 }
