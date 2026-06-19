@@ -1,32 +1,43 @@
 pipeline {
 
-    agent any
+agent any
 
-    stages {
+stages {
 
-        stage('Build') {
-            steps {
-                bat 'dotnet build'
-            }
-        }
+stage('Clean') {
+    steps {
+        deleteDir()
+    }
+}
 
-        stage('Test') {
-            steps {
-                bat 'dotnet test'
-            }
-        }
+stage('Build') {
+    steps {
+        bat 'dotnet build'
+    }
+}
+
+stage('Test') {
+    steps {
+        bat 'dotnet test'
+    }
+}
 
 stage('Publish Extent Report') {
     steps {
+
+        bat 'dir ECommerce.Tests\\bin\\Debug\\net8.0\\Reports'
+
         publishHTML([
-            reportDir: 'Reports',
-            reportFiles: 'index.html',
-            reportName: 'Extent Report',
             allowMissing: false,
-            alwaysLinkToLastBuild: true
+            keepAll: true,
+            alwaysLinkToLastBuild: true,
+            reportDir: 'ECommerce.Tests/bin/Debug/net8.0/Reports',
+            reportFiles: 'ExtentReport.html',
+            reportName: 'Extent Report'
         ])
     }
 }
 
-    }
+}
+
 }
